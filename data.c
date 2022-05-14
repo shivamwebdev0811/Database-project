@@ -18,15 +18,15 @@ printf("enter user id=");
 scanf("%s",&user);
 *pass=getpass("enter password= ");
 if((strcmp(user,"admin")==0)&&(strcmp(*pass,"admin")==0)){
-printf("Enter information:\n");
-    for(i=0;i<=4;i++)
-    {
-    s[i].roll=i+1;
-    printf("Enter name=");
-    scanf("%s",&s[i].name);
-    printf("Enter marks=");
-    scanf("%d",&s[i].marks);
-    }
+    printf("Enter information:\n");
+        for(i=0;i<=4;i++)
+        {
+        s[i].roll=i+1;
+        printf("Enter name=");
+        scanf("%s",&s[i].name);
+        printf("Enter marks=");
+        scanf("%d",&s[i].marks);
+        }
 data:
 printf("Roll no.\tName\t\tMarks\n");
     for(i=0;i<=4;i++)
@@ -37,69 +37,68 @@ printf("Roll no.\tName\t\tMarks\n");
 
 
 do
-{
-printf("\ncommand==>");
-scanf("%s",com);
-if(strcmp(com,"data")==0)
-{
-goto data;
-}
-
-else if(strcmp(com,"search")==0)
-{
-printf("search==>");
-scanf("%s",&search);
-printf("\nRoll no.\tName\t\tMarks\n");
-    for(i=0;i<=4;i++) 
     {
-      
-    k=strcmp(search,s[i].name);
-         if(k==0)
-         {  
-         printf("%d\t\t%s\t\t%d\n",s[i].roll,s[i].name,s[i].marks);
-         }
-         else
-         {
-         m=1;
-         }
+    printf("\ncommand==>");
+    scanf("%s",com);
+        if(strcmp(com,"data")==0)
+        {
+        goto data;
+        }
+
+    else if(strcmp(com,"search")==0)
+    {
+    printf("search==>");
+    scanf("%s",&search);
+    printf("\nRoll no.\tName\t\tMarks\n");
+        for(i=0;i<=4;i++) 
+        {
+        k=strcmp(search,s[i].name);
+            if(k==0)
+            {  
+            printf("%d\t\t%s\t\t%d\n",s[i].roll,s[i].name,s[i].marks);
+            }
+            else
+            {
+            m=1;
+            }
+        }
+        if(m==1)
+        {
+        printf("Not found");
+        }
+        }
+    else if(strcmp(com,"sort")==0)
+    {
+        if(strcmp(com,"exit")!=0)
+        {
+        printf("enter marks for sorting==>");
+        scanf("%d",&n);
+        printf("\nRoll no.\tName\t\tMarks\n");
+            for(i=0;i<=4;i++)
+            {
+                if(s[i].marks>=n)
+                {
+                printf("%d\t\t%s\t\t%d\n",s[i].roll,s[i].name,s[i].marks);
+                }
+            }
+        }
     }
-if(m==1)
-{
-printf("Not found");
+    else if(strcmp(com,"logout")==0)
+    {
+    goto user;
+    }
+    else
+    {
+        if(strcmp(com,"exit")!=0)
+        {
+        printf("command not found");
+        }
+    }
+ }while(strcmp(com,"exit")!=0);
 }
-}
-else if(strcmp(com,"sort")==0)
-{
-if(strcmp(com,"exit")!=0)
-{
-printf("enter marks for sorting==>");
-scanf("%d",&n);
- printf("\nRoll no.\tName\t\tMarks\n");
- for(i=0;i<=4;i++)
-  {
-   if(s[i].marks>=n)
-   {
-   printf("%d\t\t%s\t\t%d\n",s[i].roll,s[i].name,s[i].marks);
-   }
-  }
- }
-}
-else if(strcmp(com,"logout")==0)
-{
-goto user;
-}
-else
-{
-if(strcmp(com,"exit")!=0)
-{
-printf("command not found");
-}
-}
-}while(strcmp(com,"exit")!=0);
-}
-else
-{
-printf("Wrong userid or password\n");
-goto user;
-}
+    else
+    {
+    printf("Wrong userid or password\n");
+    goto user;
+    }
 }
