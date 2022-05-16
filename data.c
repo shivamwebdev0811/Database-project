@@ -69,8 +69,7 @@ do
         }
     else if(strcmp(com,"sort")==0)
     {
-        if(strcmp(com,"exit")!=0)
-        {
+       
         printf("enter marks for sorting==>");
         scanf("%d",&n);
         printf("\nRoll no.\tName\t\tMarks\n");
@@ -81,7 +80,7 @@ do
                 printf("%d\t\t%s\t\t%d\n",s[i].roll,s[i].name,s[i].marks);
                 }
             }
-        }
+        
     }
     else if(strcmp(com,"logout")==0)
     {
